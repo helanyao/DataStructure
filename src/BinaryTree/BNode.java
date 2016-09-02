@@ -50,4 +50,20 @@ public class BNode {
 			return true;
 		}
 	}
+	
+	public boolean hasLeft() {
+		if(left == null) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+	
+	public boolean hasRight() {
+		if(right == null) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 }

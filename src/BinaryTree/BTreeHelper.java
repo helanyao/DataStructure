@@ -5,19 +5,57 @@ import java.util.Queue;
 import java.util.Stack;
 
 public class BTreeHelper {
-	
-	int getBTreeDepth(BNode root) {
+	// The height of a binary tree is the number of edges 
+	// between root and its furthest leaf. 
+	// A null tree has a deepth of 0.
+	int getDeepth(BNode root) {
 		if(root == null) {
 			return 0;
 		} else {
-			int dep1 = getBTreeDepth(root.getLeft());
-			int dep2 = getBTreeDepth(root.getRight());
+			int dep1 = getDeepth(root.getLeft());
+			int dep2 = getDeepth(root.getRight());
 			if(dep1 > dep2) {
 				return dep1 + 1;
 			} else {
 				return dep2 + 1;
 			}
 		}
+	}
+	
+	// A tree containing a single node has a height of 0.
+	public int getHeight(BNode root) {
+		int height = 0;
+		BNode n = root;
+		Stack<BNode> st = new Stack<BNode>();
+		
+		while(n != null || !st.isEmpty()) {
+			while(n != null) {
+				st.push(n);
+				if(n.hasLeft()) {
+					n = n.getLeft();
+				} else {
+					n = n.getRight();
+				}
+			} // inner while
+			
+			n = st.pop();
+			
+			if(height < st.size()) {
+				height = st.size();
+			}
+			
+			while(!st.isEmpty() && st.peek().getRight() == n) {
+				n = st.pop();
+			}
+			
+			if(!st.empty()) {
+				n = st.peek().getRight();
+			} else {
+				n = null;
+			}
+		} // out while
+		
+		return height;
 	}
 	
 	//for node n, get its level
@@ -154,6 +192,9 @@ public class BTreeHelper {
 		}
 		return maxCount;
 	}
+	
+	
+	
 }
 
 
