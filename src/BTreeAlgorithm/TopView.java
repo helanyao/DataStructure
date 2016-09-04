@@ -14,13 +14,13 @@ public class TopView {
 		BTree bt2 = new BTree(init2);
 		String[] init3 = new String[]{"1", "[", ",", "3", "[", "6", ",", "]", "]"};
 		BTree bt3 = new BTree(init3);
-		printTopView(bt1.getRoot());
-		printTopView(null);
-		printTopView(bt2.getRoot());
-		printTopView(bt3.getRoot());
+		printTopViewN(bt1.getRoot());
+		printTopViewN(null);
+		printTopViewN(bt2.getRoot());
+		printTopViewN(bt3.getRoot());
 	}
 	
-	public static void printTopView(BNode root) {
+	public static void printTopViewN(BNode root) {
 		if(root == null) {
 			System.out.println("printTopView: empty tree.");
 			return;
@@ -48,5 +48,25 @@ public class TopView {
 			n = n.getRight();
 		}
 	}
+	
+	public static void top_view(BNode root)
+	{
+	    if(root != null) {
+	        top_view(root.getLeft(), true);
+	        System.out.print(root.getVal() + " ");
+	        top_view(root.getRight(), false);
+	    }
+	}
 
+	public static void top_view(BNode node, boolean goLeft) {
+	    if(node != null) {
+	        if(goLeft) {
+	            top_view(node.getLeft(), goLeft);
+	            System.out.print(node.getVal() + " ");
+	        } else {
+	            System.out.print(node.getVal() + " ");
+	            top_view(node.getRight(), goLeft);
+	        }
+	    } 
+	}
 }
