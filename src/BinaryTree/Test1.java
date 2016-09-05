@@ -7,9 +7,9 @@ public class Test1 {
 		
 		BTree bt = new BTree(init);
 		
-		BTreeTraversal tra = new BTreeTraversal();
-		tra.LevelOrderN(bt.getRoot());
+		//BTreeTraversal tra = new BTreeTraversal();
+		//tra.LevelOrderN(bt.getRoot());
 		BTreeHelper helper = new BTreeHelper();
-		System.out.println("\n" + helper.getWidth(bt.getRoot()));
+		System.out.println("\n" + helper.getHeight(bt.getRoot()));
 	}
 }
