@@ -5,13 +5,13 @@ public class LinkedList {
 	private int num;
 	
 	public LinkedList(){
-		System.out.println("default constructor of LinkedList");
+		// System.out.println("default constructor of LinkedList");
 		head = null;
 		num = 0;
 	}
 	
 	public LinkedList(Node n){
-		System.out.println("head provided constructor of LinkedList");
+		// System.out.println("head provided constructor of LinkedList");
 		head = n;
 		num = 1;
 	}
