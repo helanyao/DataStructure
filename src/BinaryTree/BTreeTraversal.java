@@ -6,7 +6,6 @@ import java.util.Stack;
 
 // used for visiting all nodes of Binary Tree in specific order.
 public class BTreeTraversal {
-	
 	public void PreOrderN(BNode root) {
 		Stack<BNode> s = new Stack<BNode>();
 		BNode p = root;
