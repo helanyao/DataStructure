@@ -4,6 +4,7 @@ public class BNode {
 	private int value;
 	private BNode left;
 	private BNode right;
+	private BNode parent;
 	
 	public BNode() {
 		value = -1;
@@ -41,6 +42,14 @@ public class BNode {
 	
 	public BNode getRight() {
 		return right;
+	}
+	
+	public void setParent(BNode n) {
+		parent = n;
+	}
+	
+	public BNode getParent() {
+		return parent;
 	}
 	
 	public boolean isLeaf() {

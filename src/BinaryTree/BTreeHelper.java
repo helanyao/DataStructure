@@ -193,7 +193,13 @@ public class BTreeHelper {
 		return maxCount;
 	}
 	
-	
+	public void initParent(BNode root, BNode parent) {
+		if(root != null) {
+			root.setParent(parent);
+			initParent(root.getLeft(), root);
+			initParent(root.getRight(), root);
+		}
+	}	
 	
 }
 
