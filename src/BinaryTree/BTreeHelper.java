@@ -8,22 +8,24 @@ public class BTreeHelper {
 	// The height of a binary tree is the number of edges 
 	// between root and its furthest leaf. 
 	// A null tree has a deepth of 0.
-	int getDeepth(BNode root) {
+	public int getDeepth(BNode root) {
 		if(root == null) {
 			return 0;
 		} else {
-			int dep1 = getDeepth(root.getLeft());
-			int dep2 = getDeepth(root.getRight());
-			if(dep1 > dep2) {
-				return dep1 + 1;
-			} else {
-				return dep2 + 1;
-			}
+			return 1 + Math.max( getHeight(root.getLeft()), getHeight(root.getRight()) );
 		}
 	}
 	
 	// A tree containing a single node has a height of 0.
 	public int getHeight(BNode root) {
+		if (root == null){
+	        return -1;
+	    }
+	    else{
+	        return 1 + Math.max( getHeight(root.getLeft()), getHeight(root.getRight()) );
+	    }
+	}
+	public int getHeightN(BNode root) {
 		int height = 0;
 		BNode n = root;
 		Stack<BNode> st = new Stack<BNode>();

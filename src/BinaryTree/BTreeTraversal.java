@@ -100,19 +100,23 @@ public class BTreeTraversal {
 		Queue<BNode> q = new LinkedList<BNode>();
 		BNode p = null;
 		
-		//need firstly check null
+		// need firstly check null
+		// When using a capacity-restricted queue,
+		// this method is preferable to add(),
+		// which can fail to insert an element only by throwing an exception.
 		if(root != null) {
-			q.add(root);
+			q.offer(root);
 		}
 		
 		while(!q.isEmpty()) {
+			// remove() will throw an exception when it is empty
 			p = q.poll();
 			System.out.print(p.getVal());
 			if(p.getLeft() != null) {
-				q.add(p.getLeft());
+				q.offer(p.getLeft());
 			}
 			if(p.getRight() != null) {
-				q.add(p.getRight());
+				q.offer(p.getRight());
 			}
 		}
 	}
