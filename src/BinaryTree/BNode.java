@@ -1,10 +1,10 @@
 package BinaryTree;
 
 public class BNode {
-	private int value;
-	private BNode left;
-	private BNode right;
-	private BNode parent;
+	int value;
+	BNode left;
+	BNode right;
+	BNode parent;
 	
 	public BNode() {
 		value = -1;
