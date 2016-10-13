@@ -48,50 +48,29 @@ public class LinkedListHelper {
 		  }
 	}
 	
-	public Node MergeLists(Node headA, Node headB) {
-	    Node head = null;
-	    Node curA = headA;
-	    Node curB = headB;
-	    Node cur = null;
-	    Node n = null;
-	    
-	    while(curA != null && curB != null){
-	        if(curA.getValue() < curB.getValue()){
-	            n = curA;
-	            curA = curA.getNext();
-	        }else{
-	            n = curB;
-	            curB = curB.getNext();
-	        }
-	        
-	        if(head == null){
-	            head = n;
-	            cur = head;
-	        }else{
-	            cur.setNext(n);
-	            cur = cur.getNext();
-	        }
-	        n.setNext(null);
-	    }
-	    
-	    if(curA != null){
-	    	if(cur != null){
-	    		cur.setNext(curA);
-	    	}else{
-	    		head = headA;
-	    	}
-	    }else if(curB != null){
-	    	if(cur != null){
-	    		cur.setNext(curB);
-	    	}else{
-	    		head = headB;
-	    	}
-	        
-	    }
-	    
-	    return head;
-
-	}
+    public Node mergeTwoLists(Node l1, Node l2) {
+    	Node dummy = new Node(0);
+    	Node lastNode = dummy;
+        
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                lastNode.next = l1;
+                l1 = l1.next;
+            } else {
+                lastNode.next = l2;
+                l2 = l2.next;
+            }
+            lastNode = lastNode.next;
+        }
+        
+        if (l1 != null) {
+            lastNode.next = l1;
+        } else {
+            lastNode.next = l2;
+        }
+        
+        return dummy.next;
+    }
 	
 	public Node removeAtPosition(Node head, int position){
 		if(position < 0 || head == null){

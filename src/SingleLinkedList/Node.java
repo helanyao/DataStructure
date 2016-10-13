@@ -1,40 +1,25 @@
 package SingleLinkedList;
 
 public class Node {
-	public int value;
+	public int val;
 	public Node next;
-	public String val;
 	
 	public Node(){
-		value = 0;
+		val = 0;
 		this.next = null;
-		val = "";
 	}
 	
 	public Node(int value){
 		this.next = null;
-		this.value = value;
-		this.val = "";
-	}
-	
-	public Node(int value, String s){
-		this.next = null;
-		this.value = value;
-		this.val = s;
+		this.val = value;
 	}
 	
 	public int getValue(){
-		return value;
+		return val;
 	}
 	
 	public void setValue(int value){
-		this.value = value;
-		this.val = "";
-	}
-	
-	public void setValue(int value, String s){
-		this.value = value;
-		this.val = s;
+		this.val = value;
 	}
 	
 	public Node getNext(){
@@ -43,8 +28,5 @@ public class Node {
 	
 	public void setNext(Node next){
 		this.next = next;
-	}
-	
-	
-	
+	}	
 }
