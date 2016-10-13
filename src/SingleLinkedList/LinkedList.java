@@ -1,8 +1,8 @@
 package SingleLinkedList;
 
 public class LinkedList {
-	private Node head;
-	private int num;
+	public Node head;
+	public int num;
 	
 	public LinkedList(){
 		// System.out.println("default constructor of LinkedList");
@@ -33,7 +33,7 @@ public class LinkedList {
 	}
 	
 	public boolean isEmpty(){
-		return num == 0;
+		return head == null;
 	}
 	
 	public void printAll(){
