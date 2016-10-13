@@ -52,7 +52,7 @@ public class BTree {
 			if(s.equals("[")) {
 				//here to push node
 				st.push(tmpNode);
-				System.out.println("start to parse the subtree of " + tmpNode.getVal());
+				//System.out.println("start to parse the subtree of " + tmpNode.getVal());
 				continue;
 			}
 			
@@ -62,7 +62,7 @@ public class BTree {
 				}else{
 					//here to pop node
 					int k = st.pop().getVal();
-					System.out.println("finish initing the subtree of " + k);
+					//System.out.println("finish initing the subtree of " + k);
 					continue;
 				}
 			}
@@ -71,7 +71,7 @@ public class BTree {
 				if(st.isEmpty()) {
 					throw new Exception("failed to parse \",\". the init data is note correct!");
 				}else{
-					System.out.println("right child of " + st.peek().getVal());
+					//System.out.println("right child of " + st.peek().getVal());
 					right = true;
 					continue;
 				}
@@ -83,7 +83,7 @@ public class BTree {
 			
 			if(root == null) {
 				root = n;
-				System.out.println("finish initing root node");
+				//System.out.println("finish initing root node");
 				continue;
 			}
 			

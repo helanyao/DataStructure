@@ -1,5 +1,11 @@
 package BinaryTree;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class Test1 {
 
 	public static void main(String[] args) {
@@ -7,9 +13,10 @@ public class Test1 {
 		
 		BTree bt = new BTree(init);
 		
-		//BTreeTraversal tra = new BTreeTraversal();
-		//tra.LevelOrderN(bt.getRoot());
-		BTreeHelper helper = new BTreeHelper();
-		System.out.println("\n" + helper.getHeight(bt.getRoot()));
+		BTreeTraversal tra = new BTreeTraversal();
+		tra.LevelOrderN(bt.getRoot());
+		
 	}
+	
+
 }

@@ -1,26 +1,26 @@
 package SingleLinkedList;
 
 public class Node {
-	private int value;
-	private Node next;
-	private String sValue;
+	public int value;
+	public Node next;
+	public String val;
 	
 	public Node(){
 		value = 0;
 		this.next = null;
-		sValue = "";
+		val = "";
 	}
 	
 	public Node(int value){
 		this.next = null;
 		this.value = value;
-		this.sValue = "";
+		this.val = "";
 	}
 	
 	public Node(int value, String s){
 		this.next = null;
 		this.value = value;
-		this.sValue = s;
+		this.val = s;
 	}
 	
 	public int getValue(){
@@ -29,12 +29,12 @@ public class Node {
 	
 	public void setValue(int value){
 		this.value = value;
-		this.sValue = "";
+		this.val = "";
 	}
 	
 	public void setValue(int value, String s){
 		this.value = value;
-		this.sValue = s;
+		this.val = s;
 	}
 	
 	public Node getNext(){

@@ -1,31 +1,31 @@
 package BinaryTree;
 
 public class BNode {
-	int value;
-	BNode left;
-	BNode right;
-	BNode parent;
+	public int val;
+	public BNode left;
+	public BNode right;
+	public BNode parent;
 	
 	public BNode() {
-		value = -1;
+		val = -1;
 		left = right = null;
 	}
 	
 	public BNode(int v) {
-		value = v;
+		val = v;
 		left = right = null;
 	}
 	
 	public String toString() {
-		return String.valueOf(value);
+		return String.valueOf(val);
 	}
 	
 	public void setVal(int v) {
-		value = v;
+		val = v;
 	}
 	
 	public int getVal() {
-		return value;
+		return val;
 	}
 	
 	public void setLeft(BNode n) {
