@@ -15,39 +15,6 @@ public class LinkedListHelper {
         return slow;
 	}
 	
-	public Node reverseListN(Node head) {
-		Node prev = null, cur = head;
-		
-		while(cur != null) {
-			Node next = cur.getNext();
-			cur.setNext(prev);
-			prev = cur;
-			cur = next;
-		}
-		
-		return prev;
-	}
-	
-	public Node reverseList(Node head, Node pre) {
-		if(head == null) {
-			return pre;
-		}
-		
-		Node next = head.getNext();
-		head.setNext(pre);
-		
-		return reverseList(next, head);
-	}
-	
-	public void reversePrint(Node head) {
-		  if(head == null){
-		      return;
-		  } else{
-		    reversePrint(head.getNext());
-		    System.out.println(head.getValue());
-		  }
-	}
-	
     public Node mergeTwoLists(Node l1, Node l2) {
     	Node dummy = new Node(0);
     	Node lastNode = dummy;
@@ -101,6 +68,30 @@ public class LinkedListHelper {
 		}else{
 			prev.setNext(current.getNext());
 			current.setNext(null);
+		}
+		
+		return head;
+	}
+	
+	// remove all nodes who match val
+	public Node remove(Node head, int val) {
+		Node prv = null, cur = head;
+		while(cur != null) {
+			if(cur.val == val) {
+				if(prv == null) {
+					head = cur.next;
+					cur.next = null;
+					cur = head;
+					continue;
+				} else {
+					prv.next = cur.next;
+					cur.next = null;
+					cur = prv.next;
+					continue;
+				}
+			}
+			prv = cur;
+			cur = cur.next;
 		}
 		
 		return head;
