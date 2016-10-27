@@ -1,11 +1,16 @@
 package TrieTree;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
 
 // assume that all inputs are consist of lower case letters a-z
 
 class TrieNode {
-	public boolean havVal;
+	public String val = null;
 	public HashMap<Character, TrieNode> children = null;
 	public int freq = 0;
 	
@@ -35,7 +40,7 @@ public class Trie {
         	} 
         	cur = cur.children.get(ch);
         	if(i == word.length() - 1) {
-        		cur.havVal = true;
+        		cur.val = word;
         	}
         }
     }
@@ -59,7 +64,7 @@ public class Trie {
     // Returns if the word is in the trie.
     public boolean search(String word) {
         TrieNode n = getNodeForWord(word);
-        if(n == null || !n.havVal) {
+        if(n == null || n.val == null) {
         	return false;
         } else {
         	return true;
@@ -75,5 +80,32 @@ public class Trie {
         } else {
         	return true;
         }
+    }
+    
+    public List<String> serialize() {
+    	Queue<TrieNode> q = new LinkedList<TrieNode>();
+    	List<String> values = new ArrayList<String>();
+    	TrieNode n = root;
+    	q.offer(n);
+    	while(!q.isEmpty()) {
+    		n = q.poll();
+    		if(n.val != null) {
+    			values.add(n.val);
+    		}
+    		for(Map.Entry<Character, TrieNode> entry : n.children.entrySet()) {
+    			q.offer(entry.getValue());
+    		}
+    	}
+    	return values;
+    }
+    
+    public void deserialize(List<String> words) {
+    	if(words == null) {
+    		root = null;
+    		return;
+    	}
+    	for(String word : words) {
+    		insert(word);
+    	}
     }
 }
