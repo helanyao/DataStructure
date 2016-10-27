@@ -15,15 +15,10 @@ public class TrieTest {
 		t.insert("b");
 		System.out.println(t.search("b"));
 		
-		List<String> words = t.serialize();
-		System.out.println(words.toString());
+		Trie ts = new Trie();
+		String s = ts.serialize(t.root);
+		System.out.println(s);
 		
-		Trie t2 = new Trie();
-		t2.deserialize(words);
-		System.out.println(t.startsWith("a"));
-		System.out.println(t.search("b"));
-		List<String> words1 = t.serialize();
-		System.out.println(words1.toString());
 	}
 
 }
