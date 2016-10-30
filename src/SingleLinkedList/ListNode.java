@@ -1,15 +1,15 @@
 package SingleLinkedList;
 
-public class Node {
+public class ListNode {
 	public int val;
-	public Node next;
+	public ListNode next;
 	
-	public Node(){
+	public ListNode(){
 		val = 0;
 		this.next = null;
 	}
 	
-	public Node(int value){
+	public ListNode(int value){
 		this.next = null;
 		this.val = value;
 	}
@@ -22,11 +22,11 @@ public class Node {
 		this.val = value;
 	}
 	
-	public Node getNext(){
+	public ListNode getNext(){
 		return next;
 	}
 	
-	public void setNext(Node next){
+	public void setNext(ListNode next){
 		this.next = next;
 	}	
 }

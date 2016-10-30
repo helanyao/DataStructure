@@ -1,12 +1,12 @@
 package SingleLinkedList;
 
 public class LinkedListHelper {
-	public Node findMiddle(Node head) {
+	public ListNode findMiddle(ListNode head) {
 		if(head == null) {
 			return null;
 		}
 		
-		Node slow = head, fast = head.next;
+		ListNode slow = head, fast = head.next;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
@@ -15,9 +15,9 @@ public class LinkedListHelper {
         return slow;
 	}
 	
-    public Node mergeTwoLists(Node l1, Node l2) {
-    	Node dummy = new Node(0);
-    	Node lastNode = dummy;
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    	ListNode dummy = new ListNode(0);
+    	ListNode lastNode = dummy;
         
         while (l1 != null && l2 != null) {
             if (l1.val < l2.val) {
@@ -39,14 +39,14 @@ public class LinkedListHelper {
         return dummy.next;
     }
 	
-	public Node removeAtPosition(Node head, int position){
+	public ListNode removeAtPosition(ListNode head, int position){
 		if(position < 0 || head == null){
 			System.out.println("position or head value is illegal.");
 			return head;
 		}
 		
-		Node prev = null;
-		Node current = head;
+		ListNode prev = null;
+		ListNode current = head;
 		int index = 0;
 		
 		while(index < position && current != null){
@@ -62,7 +62,7 @@ public class LinkedListHelper {
 		if(current == null){
 			System.out.println("the position is out of boundary.");
 		}else if(prev == null){
-			Node n = head.getNext();
+			ListNode n = head.getNext();
 			head.setNext(null);
 			head = n;
 		}else{
@@ -74,8 +74,8 @@ public class LinkedListHelper {
 	}
 	
 	// remove all nodes who match val
-	public Node remove(Node head, int val) {
-		Node prv = null, cur = head;
+	public ListNode remove(ListNode head, int val) {
+		ListNode prv = null, cur = head;
 		while(cur != null) {
 			if(cur.val == val) {
 				if(prv == null) {
