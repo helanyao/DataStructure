@@ -1,7 +1,7 @@
 package SingleLinkedList;
 
 public class LinkedList {
-	public ListNode head;
+	public Node head;
 	public int num;
 	
 	public LinkedList(){
@@ -10,17 +10,17 @@ public class LinkedList {
 		num = 0;
 	}
 	
-	public LinkedList(ListNode n){
+	public LinkedList(Node n){
 		// System.out.println("head provided constructor of LinkedList");
 		head = n;
 		num = 1;
 	}
 	
-	public ListNode getHead(){
+	public Node getHead(){
 		return head;
 	}
 	
-	public void setHead(ListNode head){
+	public void setHead(Node head){
 		this.head = head;
 	}
 	
@@ -41,7 +41,7 @@ public class LinkedList {
 		if(isEmpty()) {
 			System.out.println("empty linked list");
 		}else{
-			ListNode n = head;
+			Node n = head;
 			while(n != null){
 				System.out.print(n.getValue() + "  ");
 				n = n.getNext();
@@ -51,12 +51,12 @@ public class LinkedList {
 	}
 	
 	public void add(int v){
-		ListNode n = new ListNode(v);
+		Node n = new Node(v);
 		if(isEmpty()){
 			head = n;
 			num = 1;
 		} else {
-			ListNode current = head;
+			Node current = head;
 			while(current.getNext() != null){
 				current = current.getNext();
 			}
@@ -76,8 +76,8 @@ public class LinkedList {
 			num--;
 			return true;
 		}else{
-			ListNode cur = head.getNext();
-			ListNode prv = head;
+			Node cur = head.getNext();
+			Node prv = head;
 			while(cur != null){
 				if(cur.getValue() == v){
 					prv.setNext(cur.getNext());
@@ -100,7 +100,7 @@ public class LinkedList {
 		}
 		int[] arr = new int[num];
 		int i = 0;
-		for(ListNode n = head; n != null && i < num; n = n.getNext(), i++){
+		for(Node n = head; n != null && i < num; n = n.getNext(), i++){
 			arr[i] = n.getValue();
 		}
 		
