@@ -2,6 +2,7 @@ package BinaryTree;
 
 public class BNode {
 	public int val;
+	public int deepth = -1;
 	public BNode left;
 	public BNode right;
 	public BNode parent;
@@ -13,6 +14,12 @@ public class BNode {
 	
 	public BNode(int v) {
 		val = v;
+		left = right = null;
+	}
+	
+	public BNode(int v, int d) {
+		val = v;
+		deepth = d;
 		left = right = null;
 	}
 	

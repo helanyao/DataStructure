@@ -112,7 +112,7 @@ public class BTreeTraversal {
 		while(!q.isEmpty()) {
 			// remove() will throw an exception when it is empty
 			p = q.poll();
-			System.out.print(p.getVal());
+			System.out.print(p.getVal() + " ");
 			if(p.getLeft() != null) {
 				q.offer(p.getLeft());
 			}
@@ -128,7 +128,7 @@ public class BTreeTraversal {
      */  
     public static void LevelOrder(BNode root) {
         ArrayList<ArrayList<Integer>> ret = new ArrayList<ArrayList<Integer>>();
-        levelTraversalVisit(root, 0, ret);
+        levelTraversalVisit(root, 1, ret);
         System.out.println(ret);
     }
 
@@ -138,14 +138,14 @@ public class BTreeTraversal {
         }
         
         // If there is not enough space for new level 
-        // (which means the size of ArrayList is not enougth),
+        // (which means the size of ArrayList is not enough),
         // it will add new one.
         // For example, when size = 3, level: 0, 1, 2
-        if (level >= ret.size()) {
+        if (level > ret.size()) {
             ret.add(new ArrayList<Integer>());
         }
         // visit current node
-        ret.get(level).add(root.val);
+        ret.get(level - 1).add(root.val);
 
         levelTraversalVisit(root.left, level + 1, ret);
         levelTraversalVisit(root.right, level + 1, ret);

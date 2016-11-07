@@ -1,43 +1,6 @@
 package SingleLinkedList;
 
 public class LinkedListHelper {
-	public ListNode findMiddle(ListNode head) {
-		if(head == null) {
-			return null;
-		}
-		
-		ListNode slow = head, fast = head.next;
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        
-        return slow;
-	}
-	
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-    	ListNode dummy = new ListNode(0);
-    	ListNode lastNode = dummy;
-        
-        while (l1 != null && l2 != null) {
-            if (l1.val < l2.val) {
-                lastNode.next = l1;
-                l1 = l1.next;
-            } else {
-                lastNode.next = l2;
-                l2 = l2.next;
-            }
-            lastNode = lastNode.next;
-        }
-        
-        if (l1 != null) {
-            lastNode.next = l1;
-        } else {
-            lastNode.next = l2;
-        }
-        
-        return dummy.next;
-    }
 	
 	public ListNode removeAtPosition(ListNode head, int position){
 		if(position < 0 || head == null){
