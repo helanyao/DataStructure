@@ -1,5 +1,6 @@
 package BinaryTree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -120,4 +121,33 @@ public class BTreeTraversal {
 			}
 		}
 	}
+	
+    /**
+     *  Implement lever traversal in recurse way.
+     *  http://discuss.leetcode.com/questions/49/binary-tree-level-order-traversal#answer-container-2543 
+     */  
+    public static void LevelOrder(BNode root) {
+        ArrayList<ArrayList<Integer>> ret = new ArrayList<ArrayList<Integer>>();
+        levelTraversalVisit(root, 0, ret);
+        System.out.println(ret);
+    }
+
+    private static void levelTraversalVisit(BNode root, int level, ArrayList<ArrayList<Integer>> ret) {
+        if (root == null) {
+            return;
+        }
+        
+        // If there is not enough space for new level 
+        // (which means the size of ArrayList is not enougth),
+        // it will add new one.
+        // For example, when size = 3, level: 0, 1, 2
+        if (level >= ret.size()) {
+            ret.add(new ArrayList<Integer>());
+        }
+        // visit current node
+        ret.get(level).add(root.val);
+
+        levelTraversalVisit(root.left, level + 1, ret);
+        levelTraversalVisit(root.right, level + 1, ret);
+    }
 }

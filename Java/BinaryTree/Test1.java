@@ -12,11 +12,10 @@ public class Test1 {
 		String[] init = new String[]{"1", "[", "2", "[", "4", ",", "5", "]", ",", "3", "[", "6", ",", "]", "]"};
 		
 		BTree bt = new BTree(init);
-		
-		BTreeTraversal tra = new BTreeTraversal();
-		tra.LevelOrderN(bt.getRoot());
-		
+		BTreeHelper bth = new BTreeHelper();
+//		BTreeTraversal tra = new BTreeTraversal();
+//		tra.LevelOrderN(bt.getRoot());
 	}
-	
 
 }
+

@@ -5,60 +5,6 @@ import java.util.Queue;
 import java.util.Stack;
 
 public class BTreeHelper {
-	// The height of a binary tree is the number of edges 
-	// between root and its furthest leaf. 
-	// A null tree has a deepth of 0.
-	public int getDeepth(BNode root) {
-		if(root == null) {
-			return 0;
-		} else {
-			return 1 + Math.max( getHeight(root.getLeft()), getHeight(root.getRight()) );
-		}
-	}
-	
-	// A tree containing a single node has a height of 0.
-	public int getHeight(BNode root) {
-		if (root == null){
-	        return -1;
-	    }
-	    else{
-	        return 1 + Math.max( getHeight(root.getLeft()), getHeight(root.getRight()) );
-	    }
-	}
-	public int getHeightN(BNode root) {
-		int height = 0;
-		BNode n = root;
-		Stack<BNode> st = new Stack<BNode>();
-		
-		while(n != null || !st.isEmpty()) {
-			while(n != null) {
-				st.push(n);
-				if(n.hasLeft()) {
-					n = n.getLeft();
-				} else {
-					n = n.getRight();
-				}
-			} // inner while
-			
-			n = st.pop();
-			
-			if(height < st.size()) {
-				height = st.size();
-			}
-			
-			while(!st.isEmpty() && st.peek().getRight() == n) {
-				n = st.pop();
-			}
-			
-			if(!st.empty()) {
-				n = st.peek().getRight();
-			} else {
-				n = null;
-			}
-		} // out while
-		
-		return height;
-	}
 	
 	public int minDepth(BNode root) {
         // Corner case. Should never be hit unless the code is
@@ -171,15 +117,6 @@ public class BTreeHelper {
 		}
 		
 		return min;
-	}
-	
-	// get the number of nodes
-	int getNodeNum(BNode root) {
-		if( root == null ) {
-			return 0;
-		} else {
-			return 1 + getNodeNum(root.getLeft()) + getNodeNum(root.getRight());
-		}
 	}
 	
 	// get the number of leaf nodes
